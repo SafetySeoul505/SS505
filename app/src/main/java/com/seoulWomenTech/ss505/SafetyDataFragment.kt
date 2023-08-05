@@ -111,7 +111,6 @@ class SafetyDataFragment : Fragment() {
     fun addSaftyData(){
         // 임의의 데이터들
         safetydatalist.add(SafetyResourceModelClass(R.drawable.cpr, "심폐소생술 안전자료"))
-        safetydatalist.add(SafetyResourceModelClass(R.drawable.cpr, "심폐소생술 안전자료"))
         safetydatalist.add(SafetyResourceModelClass(R.drawable.video, "비디오 1 입니다."))
         safetydatalist.add(SafetyResourceModelClass(R.drawable.video, "비디오 2 입니다."))
     }

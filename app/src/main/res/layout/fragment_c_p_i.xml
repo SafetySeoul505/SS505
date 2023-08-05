@@ -37,6 +37,16 @@
             </com.google.android.material.appbar.AppBarLayout>
 
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="인증샷 제출"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                tools:layout_marginBottom="10dp" />
+
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

@@ -30,6 +30,7 @@ class PostDetailFragment : Fragment() {
     private var commentList = mutableListOf<CommentClass>()
     private var userList = mutableListOf<UserInfo>()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -70,18 +71,20 @@ class PostDetailFragment : Fragment() {
                     content = content,
                     date = getCurrentDate(),
                     writer_id = 1,
-                    c_id = 5
+                    c_id = commentList.size + 1
                 )
 
                 CommentDAO.insertData(mainActivity, comment)
 
-                val commentAdapter = recyclerViewComment.adapter
-                commentList.add(comment)
-                commentAdapter?.notifyItemInserted(commentList.size - 1)
-                recyclerViewComment.scrollToPosition(commentList.size - 1)
-                
                 // EditText 초기화
                 fragmentPostDetailBinding.editTextComment.text.clear()
+
+                commentList = CommentDAO.selectAllData(mainActivity)
+
+                recyclerViewComment.adapter?.notifyDataSetChanged()
+
+                mainActivity.removeFragment(MainActivity.POSTDETAIL_FRAGMENT)
+
             }
         }
         return fragmentPostDetailBinding.root
@@ -210,5 +213,9 @@ class PostDetailFragment : Fragment() {
         super.onResume()
         userList = UserInfoDAO.selectAllData(mainActivity)
         commentList = CommentDAO.selectData(mainActivity, post.post_id)
+        val commentAdapter = fragmentPostDetailBinding.recyclerViewComment.adapter
+
+        commentAdapter?.notifyDataSetChanged() // 댓글 어댑터에 변경 사항 알림
+        fragmentPostDetailBinding.recyclerViewComment.scrollToPosition(commentList.size - 1)
     }
 }

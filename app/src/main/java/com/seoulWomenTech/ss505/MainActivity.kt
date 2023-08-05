@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(activityMainBinding.root)
 
 
-//        addSampleData()
+        addSampleData()
 //         replaceFragment(MAIN_FRAGMENT, false, null)
         
         replaceFragment(ONBOARDING_FRAGMENT, false, null)

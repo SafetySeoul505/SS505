@@ -63,7 +63,7 @@ class WriteFragment : Fragment() {
 
                 // 등록이 성공하면 리스트 화면으로 이동
                 val mainActivity = activity as MainActivity
-                mainActivity.replaceFragment(MainActivity.POST_FRAGMENT, true, null)
+                mainActivity.removeFragment(MainActivity.WRITE_FRAGMENT)
             }
         }
 

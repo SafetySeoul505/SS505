@@ -8,17 +8,19 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.seoulWomenTech.ss505.databinding.FragmentParticipateBinding
+import com.seoulWomenTech.ss505.databinding.NavHeaderSidebarBinding
 import com.seoulWomenTech.ss505.databinding.RowParticipateBinding
 
 class ParticipateFragment : Fragment() {
 
     lateinit var fragmentParticipateBinding: FragmentParticipateBinding
     lateinit var mainActivity: MainActivity
-
+    lateinit var navHeaderSidebarBinding: NavHeaderSidebarBinding
     var participantsList = mutableListOf<UserInfo>()
 
 
@@ -31,7 +33,7 @@ class ParticipateFragment : Fragment() {
         mainActivity = activity as MainActivity
 
         // 임시 유저 클래스( 현재 로그인한 유저 정보를 알 수 있는 방법이 없으므로 )
-        val userTemp = UserInfoDAO.selectData(mainActivity, mainActivity.userPosition)
+        val userInfo = UserInfoDAO.selectData(mainActivity, mainActivity.userPosition)
 
         // 현재 챌린지 정보 가져오기
         val challenge = ChallengeDAO.selectData(mainActivity,mainActivity.rowPosition)
@@ -42,14 +44,63 @@ class ParticipateFragment : Fragment() {
             toolbarParticipate.run{
                 title = "Safety Seoul"
 
-                
-                setNavigationOnClickListener {
-                    // 네비게이션 뷰를 보여준다.
 
+                setNavigationOnClickListener {
+                    drawerLayoutParticipate.open()
+
+                }
+
+            }
+
+            navigationViewParticipate.run {
+                val headerView = getHeaderView(0)
+                navHeaderSidebarBinding = NavHeaderSidebarBinding.bind(headerView)
+                navHeaderSidebarBinding.run {
+                    val imgSrc = mainActivity.resources.getIdentifier(
+                        userInfo.image,
+                        "drawable",
+                        mainActivity.packageName
+                    )
+                    if (imgSrc != null) {
+                        navHeaderUserImg.setImageResource(imgSrc)
+                    }
+
+                    navHeaderUserName.text = userInfo.name
+                    navHeaderUserEmail.text = userInfo.email
+                    navHeaderUserPoint.text = "POINT : ${userInfo.point}"
 
                 }
 
 
+                setNavigationItemSelectedListener {
+                    when(it.itemId){
+                        R.id.nav_main -> {
+                            drawerLayoutParticipate.close()
+                            mainActivity.supportFragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                        }
+
+                        R.id.nav_safedata -> {
+                            mainActivity.replaceFragment(MainActivity.SAFETYDATA_FRAGMENT,true,null)
+                            drawerLayoutParticipate.close()
+                        }
+
+                        R.id.mypage -> {
+                            mainActivity.replaceFragment(MainActivity.MYPAGE_FRAGMENT,true,null)
+                            drawerLayoutParticipate.close()
+                        }
+                        R.id.nav_logout -> {
+                            mainActivity.supportFragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                            mainActivity.replaceFragment(MainActivity.LOGIN_FRAGMENT,false,null)
+
+                        }
+
+                        else -> {
+
+                        }
+
+                    }
+                    false
+                }
             }
 
             val imgSrc = mainActivity.resources.getIdentifier(challenge.img, "drawable", mainActivity.packageName)
@@ -73,7 +124,7 @@ class ParticipateFragment : Fragment() {
             var participantsTemp = ParticipantsDAO.selectByClgId(mainActivity,challenge.idx)
 
             //현재 로그인 한 유저가 참여 중인지 확인
-            var isParticipate = participantsTemp.filter { p -> p.user_id == userTemp!!.idx }.size
+            var isParticipate = participantsTemp.filter { p -> p.user_id == userInfo!!.idx }.size
 
             Log.d("사용자","$isParticipate")
 
@@ -102,7 +153,7 @@ class ParticipateFragment : Fragment() {
             participateMaxUser.text = ("참여자( ${participantsList.size} / ${challenge.maxUser} )")
 
             btnParticipate.setOnClickListener {
-                val participant = ParticipantsClass(challenge.idx, userTemp!!.idx)
+                val participant = ParticipantsClass(challenge.idx, userInfo!!.idx)
                 if(isParticipate==0){
                     ParticipantsDAO.insertData(mainActivity,participant)
                     participantsTemp = ParticipantsDAO.selectByClgId(mainActivity,challenge.idx)
