@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddUserFragment" >
+    tools:context=".GetUser.Fragment.AddUserFragment" >
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbarAddUser"
@@ -35,7 +35,7 @@
                 android:hint="이름"
                 android:transitionGroup="true"
                 app:endIconMode="clear_text"
-                app:startIconDrawable="@drawable/account_box_24">
+                app:startIconDrawable="@drawable/ic_account_box_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textInputEditTextAddUserName"
@@ -53,7 +53,7 @@
                 android:hint="전화 번호"
                 android:transitionGroup="true"
                 app:endIconMode="clear_text"
-                app:startIconDrawable="@drawable/phone_24">
+                app:startIconDrawable="@drawable/ic_phone_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textInputEditTextAddUserPhone"

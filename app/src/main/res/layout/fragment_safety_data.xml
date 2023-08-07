@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayoutSafetyData"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CPIFragment">
+    tools:context=".Main.Fragment.Challenge.CPIFragment">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayoutSafetyData"
@@ -29,7 +29,7 @@
                     android:background="?attr/colorPrimary"
                     android:minHeight="?attr/actionBarSize"
                     android:theme="@style/Theme.SS505.Toolbar"
-                    app:navigationIcon="@drawable/menu_24"
+                    app:navigationIcon="@drawable/ic_menu_24"
                     app:navigationIconTint="@color/white"
                     app:titleCentered="true"
                     app:titleTextColor="@color/white" />

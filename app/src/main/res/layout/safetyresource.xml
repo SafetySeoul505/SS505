@@ -25,7 +25,7 @@
                 android:id="@+id/safety_resource"
                 android:layout_width="match_parent"
                 android:layout_height="149dp"
-                android:src="@drawable/cpr" />
+                android:src="@drawable/sdi_cpr" />
 
             <TextView
                 android:id="@+id/safety_video_name"
