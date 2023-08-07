@@ -1,7 +1,7 @@
 package com.seoulWomenTech.ss505
 
 
-import OnboardingFragment
+import com.seoulWomenTech.ss505.GetUser.Fragment.OnboardingFragment
 import android.Manifest
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -19,6 +19,22 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.transition.MaterialSharedAxis
+import com.seoulWomenTech.ss505.DB.DAO.CommentDAO
+import com.seoulWomenTech.ss505.DB.DAO.PostDAO
+import com.seoulWomenTech.ss505.GetUser.Fragment.AddUserFragment
+import com.seoulWomenTech.ss505.Main.Fragment.Challenge.CPIFragment
+import com.seoulWomenTech.ss505.GetUser.Fragment.JoinFragment
+import com.seoulWomenTech.ss505.GetUser.Fragment.LoginFragment
+import com.seoulWomenTech.ss505.Main.Fragment.MainFragment
+import com.seoulWomenTech.ss505.MyPage.Fragment.MyPageFragment
+import com.seoulWomenTech.ss505.Main.Fragment.Challenge.ParticipateFragment
+import com.seoulWomenTech.ss505.Post.PostDetailFragment
+import com.seoulWomenTech.ss505.Post.PostFragment
+import com.seoulWomenTech.ss505.DB.DAO.PostImageDao
+import com.seoulWomenTech.ss505.Post.WriteFragment
+import com.seoulWomenTech.ss505.MyPage.Fragment.RewardsFragment
+import com.seoulWomenTech.ss505.MyPage.Fragment.RewardsHistoryFragment
+import com.seoulWomenTech.ss505.Safety.Fragment.SafetyDataFragment
 import com.seoulWomenTech.ss505.databinding.ActivityMainBinding
 import kotlin.concurrent.thread
 
@@ -42,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
 
     companion object {
-        val ONBOARDING_FRAGMENT = "OnboardingFragment" // 온보딩 화면
+        val ONBOARDING_FRAGMENT = "com.seoulWomenTech.ss505.Info.Fragment.OnboardingFragment" // 온보딩 화면
         val LOGIN_FRAGMENT = "LoginFragment" // 로그인 화면
         val JOIN_FRAGMENT = "JoinFragment" // 회원가입 화면
         val ADD_USER_FRAGMENT = "AddUserFragment" // 유저 정보 입력 화면
@@ -211,7 +227,7 @@ class MainActivity : AppCompatActivity() {
             1,
             "유저1",
             "이미지1",
-            "placeholder_2"
+            "post_placeholder_2"
         )
         PostImageDao.insertData(this, postImage1)
 
@@ -229,7 +245,7 @@ class MainActivity : AppCompatActivity() {
             3,
             "유저3",
             "이미지3",
-            "c202307271113"
+            "challenge3_1691153631540"
         )
         PostImageDao.insertData(this, postImage3)
 

@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayoutParticipate"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ParticipateFragment">
+    tools:context=".Main.Fragment.Challenge.ParticipateFragment">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayoutParticipate"
@@ -30,7 +30,7 @@
                     android:background="?attr/colorPrimary"
                     android:minHeight="?attr/actionBarSize"
                     android:theme="@style/Theme.SS505.Toolbar"
-                    app:navigationIcon="@drawable/menu_24"
+                    app:navigationIcon="@drawable/ic_menu_24"
                     app:navigationIconTint="@color/white"
                     app:titleCentered="true"
                     app:titleTextColor="@color/white" />
@@ -51,7 +51,7 @@
                         android:id="@+id/participateImg"
                         android:layout_width="match_parent"
                         android:layout_height="158dp"
-                        android:background="@drawable/image_round"
+                        android:background="@drawable/custom_image_round"
                         android:scaleType="centerCrop"
                         android:src="@drawable/sample_img" />
 
@@ -108,7 +108,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp"
-                        android:background="@drawable/button_round"
+                        android:background="@drawable/custom_button_round"
                         android:shadowColor="#000000"
                         android:shadowDx="0"
                         android:shadowDy="0"
@@ -128,7 +128,7 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/police1" />
+                            android:src="@drawable/user4_police1" />
 
                         <TextView
                             android:id="@+id/participateAdminName"

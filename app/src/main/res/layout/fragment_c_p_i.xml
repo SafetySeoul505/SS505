@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayoutCPI"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CPIFragment">
+    tools:context=".Main.Fragment.Challenge.CPIFragment">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayoutCPI"
@@ -29,7 +29,7 @@
                     android:background="?attr/colorPrimary"
                     android:minHeight="?attr/actionBarSize"
                     android:theme="@style/Theme.SS505.Toolbar"
-                    app:navigationIcon="@drawable/menu_24"
+                    app:navigationIcon="@drawable/ic_menu_24"
                     app:navigationIconTint="@color/white"
                     app:titleCentered="true"
                     app:titleTextColor="@color/white" />
@@ -107,7 +107,7 @@
                         android:layout_width="175dp"
                         android:layout_height="236dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/image_search_24" />
+                        android:src="@drawable/ic_image_search_24" />
 
                     <ImageView
                         android:id="@+id/CPIImage"
@@ -117,14 +117,14 @@
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="15dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/image_search_24"
+                        android:src="@drawable/ic_image_search_24"
                         android:visibility="gone" />
 
                     <android.widget.Button
                         android:id="@+id/btnCPI"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/button_round"
+                        android:background="@drawable/custom_button_round"
                         android:shadowColor="@color/black"
                         android:text="제출하기"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"

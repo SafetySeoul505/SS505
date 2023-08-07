@@ -25,7 +25,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
         android:visibility="gone"
-        app:icon="@drawable/navigate_next_24"
+        app:icon="@drawable/ic_navigate_next_24"
         app:iconGravity="end" />
 
 </LinearLayout>

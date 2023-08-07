@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayoutMyPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyPageFragment">
+    tools:context=".MyPage.Fragment.MyPageFragment">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayoutMyPage"
@@ -29,7 +29,7 @@
                     android:background="?attr/colorPrimary"
                     android:minHeight="?attr/actionBarSize"
                     android:theme="@style/Theme.SS505.Toolbar"
-                    app:navigationIcon="@drawable/menu_24"
+                    app:navigationIcon="@drawable/ic_menu_24"
                     app:navigationIconTint="@color/white"
                     app:titleCentered="true"
                     app:titleTextColor="@color/white" />
@@ -55,7 +55,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/pg" />
+                        android:src="@drawable/user_sample_pg" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
